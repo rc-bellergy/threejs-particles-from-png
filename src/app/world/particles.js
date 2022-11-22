@@ -98,9 +98,10 @@ export default class Particles {
 
     /**
      * 
-     * @param {string} data The row data of particles
-     * @param {number} percentage The percentage (0-1) of data be converted to particles
-     * @returns 
+     * @param {ImageData} positionsData The data of particles position
+     * @param {ImageData} colorsData The data of particles color
+     * [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData)
+     * @returns {particles}
      */
     getParticles(positionsData, colorsData) {
 
@@ -112,8 +113,8 @@ export default class Particles {
         const jumps = [] // a movement of the point in the destinationwsada
 
         // Get the distortion scale from the last pixel of colorData
-        const ds = colorsData.getColor(colorsData.getLength() - 1)
-        const scale = [ds.r / 255 * 10, ds.g / 255 * 10, ds.b / 255 * 10]
+        const ds = colorsData.getVector(colorsData.getLength() - 1)
+        const scale = [ds.x / 255 * 10, ds.y / 255 * 10, ds.z / 255 * 10]
         console.log(ds)
         console.log(scale)
 
@@ -125,8 +126,7 @@ export default class Particles {
             startPoints.push(randomPoint.x, randomPoint.y, randomPoint.z)
 
             // Set final positions
-            
-            const p = positionsData.getPosition(i);
+            const p = positionsData.getVector(i);
             points.push((p.x / 255 - 0.5) * scale[0], (p.y / 255 - 1) * scale[1], (p.z / 255 - 0.5) * scale[2])
 
             // Random duration and jumping noise
@@ -141,9 +141,9 @@ export default class Particles {
             jumps.push(0);
 
             // Set colors
-            const c = colorsData.getColor(i)
+            const c = colorsData.getVector(i)
             // console.log(c)
-            colors.push(c.r / 255, c.g / 255, c.b / 255)
+            colors.push(c.x / 255, c.y / 255, c.z / 255)
 
             // Set Size
             pscale.push(3)
