@@ -17,7 +17,7 @@ export default class DecodePNG {
     getVector(index) {
         const d = this.imageData
         const i = index * 4
-        return new THREE.Vector3(d.data[i], d.data[i + 1], d.data[2])
+        return new THREE.Vector4(d.data[i], d.data[i + 1], d.data[2], d.data[3])
     }
 
     getPosition(index) {
