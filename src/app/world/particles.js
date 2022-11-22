@@ -37,9 +37,11 @@ export default class Particles {
         })
 
         // console.log(positionsImg, colorsImg)        
-        const positionsData = new DecodePNG(positionsImg)
+        const positionsData = new DecodePNG(positionsImg, 16)
         const colorsData = new DecodePNG(colorsImg)
-        console.log(colorsData)
+
+        console.log("Position Data:", positionsData)
+        console.log("Color Data:", colorsData)
 
         const particles = this.getParticles(positionsData, colorsData)
         this.object = this.createParticlesObject(particles, this.shaderMaterial)
@@ -115,9 +117,9 @@ export default class Particles {
         // Get the distortion scale from the last pixel of colorData
         const ds = colorsData.getVector(colorsData.getLength() - 1)
         const scale = [ds.x / 255 * 10, ds.y / 255 * 10, ds.z / 255 * 10]
-        console.log(ds)
-        console.log(scale)
 
+        console.log("Distortion scale:", ds)
+        console.log("Distortion scale (converted):", scale)
 
         for (let i = 0; i < positionsData.getLength() - 1; i++) {
 
@@ -127,7 +129,7 @@ export default class Particles {
 
             // Set final positions
             const p = positionsData.getVector(i);
-            points.push((p.x / 255 - 0.5) * scale[0], (p.y / 255 - 1) * scale[1], (p.z / 255 - 0.5) * scale[2])
+            points.push((p.x / 65535 - 0.5) * scale[0], (p.y / 65535 - 1) * scale[1], (p.z / 65535 - 0.5) * scale[2])
 
             // Random duration and jumping noise
             let d = Math.random() + 2; // 2.x sec.
