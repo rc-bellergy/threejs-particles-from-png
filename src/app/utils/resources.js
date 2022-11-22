@@ -1,5 +1,6 @@
 import * as THREE from 'three' 
 import EventEmitter from './event_emitter.js'
+import { decode } from 'fast-png'
 
 /**
  * Handle resource loading and emitting events
@@ -22,6 +23,9 @@ export default class Resources extends EventEmitter {
         this.loaders = {}
         this.loaders.fileLoader = new THREE.FileLoader()
         this.loaders.imageLoader = new THREE.ImageLoader()
+        this.loaders.arraybufferLoader = new THREE.FileLoader()
+        this.loaders.arraybufferLoader.setResponseType('arraybuffer')
+
     }
 
     startLoading () {
@@ -49,6 +53,17 @@ export default class Resources extends EventEmitter {
                         }
                     )
                     break;
+
+                case 'png_16bit':
+                    this.loaders.arraybufferLoader.load(
+                        source.path,
+                        (data) => {
+                            this.sourceLoaded(source, data)
+                            console.log("Resource loaded:", source.path)
+                        }
+                    )
+                    break;
+
 
                 default:
                     console.log('source.type not found', source.type)

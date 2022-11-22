@@ -24,6 +24,9 @@ module.exports = {
         }),
         new MiniCSSExtractPlugin()
     ],
+    experiments: {
+        topLevelAwait: true
+      },
     module:
     {
         rules:

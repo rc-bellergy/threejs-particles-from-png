@@ -16,7 +16,7 @@ export default class Wrold {
             // Setup
             // this.particles = new Particles(this.resources.items['line-positions'], this.resources.items['line-colors'])
             // this.particles = new Particles(this.resources.items['box-positions'], this.resources.items['box-colors'])
-            this.particles = new Particles(this.resources.items['chinese-kitchen-p'], this.resources.items['chinese-kitchen-c'])
+            this.particles = new Particles(this.resources.items['chinese-kitchen-p16'], this.resources.items['chinese-kitchen-c'])
 
             // debug
             const axesHelper = new THREE.AxesHelper( 0.1 );

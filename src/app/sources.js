@@ -25,6 +25,11 @@ export default [
         path: 'models/chinese-kitchen/position.png'
     },
     {
+        name: 'chinese-kitchen-p16',
+        type: 'png_16bit',
+        path: 'models/chinese-kitchen/p_16bit.png'
+    },
+    {
         name: 'chinese-kitchen-c',
         type: 'png',
         path: 'models/chinese-kitchen/color.png'
