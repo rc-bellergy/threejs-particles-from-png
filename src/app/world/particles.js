@@ -124,6 +124,16 @@ export default class Particles {
 
         for (let i = 0; i < positionsData.getLength() - 1; i++) {
 
+            let c = colorsData.getVector(i)
+            // Skip black colour particles
+            if (c.equals(new THREE.Vector4(0,0,0,255))) {
+                // console.log("skipped", i)
+                continue
+            }
+            // Set colors
+            c = c.divideScalar(255)
+            colors.push(c.x, c.y, c.z)
+
             // Set start position (random points in the sphere)
             const randomPoint = this.getSpherePoint(0.5);
             startPoints.push(randomPoint.x, randomPoint.y, randomPoint.z)
@@ -146,11 +156,6 @@ export default class Particles {
             durations.push(d);
             jumps.push(0);
 
-            // Set colors
-            let c = colorsData.getVector(i)
-            c = c.divideScalar(255)
-            colors.push(c.x, c.y, c.z)
-
             // Set Size
             pscale.push(3)
 
@@ -165,7 +170,7 @@ export default class Particles {
             jumps: jumps
         }
 
-        // console.log("particles:", particles)
+        console.log("Total particles:", particles.points.length/3)
 
         return particles
     }
