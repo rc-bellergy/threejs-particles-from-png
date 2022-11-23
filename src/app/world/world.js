@@ -13,11 +13,32 @@ export default class Wrold {
             // Show the canvas
             this.app.canvas.style.setProperty('display', 'block')
 
-            // Setup
-            // this.particles = new Particles(this.resources.items['line-positions'], this.resources.items['line-colors'])
-            // this.particles = new Particles(this.resources.items['box-positions'], this.resources.items['box-colors'])
-            this.particles = new Particles(this.resources.items['chinese-kitchen-p16'], this.resources.items['chinese-kitchen-c'])
-            this.particles.object.scale.multiplyScalar(10)
+            // Choose testing objects
+            switch (2) {
+                case 0:
+                    this.particles = new Particles(this.resources.items['line-p'], this.resources.items['line-c'])
+                    this.particles.object.scale.multiplyScalar(3)
+                    break;
+                
+                case 1:
+                    this.particles = new Particles(this.resources.items['box-p'], this.resources.items['box-c'])
+                    this.particles.object.scale.multiplyScalar(4)
+                    break;
+                
+                case 2:
+                    this.particles = new Particles(this.resources.items['box-scatter-p'], this.resources.items['box-scatter-c'])
+                    this.particles.object.scale.multiplyScalar(4)
+                    break;
+
+                case 3:
+                    this.particles = new Particles(this.resources.items['chinese-kitchen-p'], this.resources.items['chinese-kitchen-c'])
+                    this.particles.object.scale.multiplyScalar(10)
+                    break;
+            
+                default:
+                    break;
+            }
+
             // console.log(this.particles)
 
             // debug
