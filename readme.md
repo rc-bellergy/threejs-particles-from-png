@@ -1,7 +1,7 @@
 # Import particles positions and colours from png files
 Decode the position.png and color.png and create the particles in ThreeJS.
 
-This [Houdini](/Users/bellergy/Documents/3D_Design/houdini/samples/bake/bake_attributes_to_png/bake_attributes_to_png.hiplc) file can bakes particles data to PNG files.
+This [Houdini](https://github.com/rc-bellergy/houdini_bake_attributes_to_png) file can bakes particles data to PNG files.
 
 ## Setup
 ``` bash
