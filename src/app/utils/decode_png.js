@@ -34,7 +34,7 @@ export default class DecodePNG {
     getVector(index) {
         const d = this.imageData
         const i = index * this.dataWidth
-        const a = this.dataWidth == 3 ? 0 : d.data[i + 3]
+        const a = this.dataWidth == 3 ? 1 : d.data[i + 3]
         return new THREE.Vector4(d.data[i], d.data[i + 1], d.data[i + 2], a)
     }
 

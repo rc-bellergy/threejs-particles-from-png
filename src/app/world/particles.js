@@ -47,6 +47,7 @@ export default class Particles {
         this.object = this.createParticlesObject(particles, this.shaderMaterial)
         this.object.rotation.x = Math.PI
         this.object.rotation.y = Math.PI
+        this.object.scale.x = -1
         this.scene.add(this.object)
 
         // Debug
@@ -115,11 +116,11 @@ export default class Particles {
         const jumps = [] // a movement of the point in the destinationwsada
 
         // Get the distortion scale from the last pixel of colorData
-        const ds = colorsData.getVector(colorsData.getLength() - 1)
-        const scale = [ds.x / 255 * 10, ds.y / 255 * 10, ds.z / 255 * 10]
+        let ds = colorsData.getVector(colorsData.getLength() - 1)
+        ds = ds.divideScalar(255) // normalize
+        const scale = [ds.x, ds.y, ds.z]
 
-        console.log("Distortion scale:", ds)
-        console.log("Distortion scale (converted):", scale)
+        console.log("Correct distortion:", scale)
 
         for (let i = 0; i < positionsData.getLength() - 1; i++) {
 
@@ -128,8 +129,11 @@ export default class Particles {
             startPoints.push(randomPoint.x, randomPoint.y, randomPoint.z)
 
             // Set final positions
-            const p = positionsData.getVector(i);
-            points.push((p.x / 65535 - 0.5) * scale[0], (p.y / 65535 - 1) * scale[1], (p.z / 65535 - 0.5) * scale[2])
+            let p = positionsData.getVector(i);
+            p = p.divideScalar(65535) // normalize (0-1)
+            p = p.sub(new THREE.Vector4( 0.5, 1, 0.5, 0 )) // center
+            p = p.multiply(new THREE.Vector4( scale[0], scale[1], scale[2], 0 )) // correct distortion 
+            points.push(p.x, p.y, p.z)
 
             // Random duration and jumping noise
             let d = Math.random() + 2; // 2.x sec.
@@ -143,9 +147,9 @@ export default class Particles {
             jumps.push(0);
 
             // Set colors
-            const c = colorsData.getVector(i)
-            // console.log(c)
-            colors.push(c.x / 255, c.y / 255, c.z / 255)
+            let c = colorsData.getVector(i)
+            c = c.divideScalar(255)
+            colors.push(c.x, c.y, c.z)
 
             // Set Size
             pscale.push(3)
