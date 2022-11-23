@@ -116,8 +116,8 @@ export default class Particles {
         const jumps = [] // a movement of the point in the destinationwsada
 
         // Get the distortion scale from the last pixel of colorData
-        let ds = colorsData.getVector(colorsData.getLength() - 1)
-        ds = ds.divideScalar(255) // normalize
+        let ds = positionsData.getVector(positionsData.getLength() - 1)
+        ds = ds.divideScalar(65535) // normalize
         const scale = [ds.x, ds.y, ds.z]
 
         console.log("Correct distortion:", scale)
