@@ -14,7 +14,7 @@ export default class Wrold {
             this.app.canvas.style.setProperty('display', 'block')
 
             // Choose testing objects
-            let showObject = 4;
+            let showObject = 2;
             switch (showObject) {
                 case 0:
                     this.particles = new Particles(this.resources.items['line-p'], this.resources.items['line-c'])

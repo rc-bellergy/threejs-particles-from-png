@@ -47,12 +47,13 @@ Change the `showObject` id in the [/src/app/world/world.js](/src/app/world/world
 
 
 ## Preview
-![](./preview.jpg)
+![A simple point cloid on threejs](./previews/simple.jpg)
+![The Hong Kong landscape](./previews/city.jpg)
 
 ## Project Showcases
-https://ccs.city/en/chinese-cultural-club/chinese-culinary
-https://ccs.city/en/chinese-cultural-club/chinese-festival
-https://ccs.city/en/chinese-cultural-club/chinese-ethics
+- https://ccs.city/en/chinese-cultural-club/chinese-culinary
+- https://ccs.city/en/chinese-cultural-club/chinese-festival
+- https://ccs.city/en/chinese-cultural-club/chinese-ethics
 
 ## Feedback
 If you have any comments / questions, please feel free to leave it to [issue](https://github.com/rc-bellergy/threejs-particles-from-png/issues).
