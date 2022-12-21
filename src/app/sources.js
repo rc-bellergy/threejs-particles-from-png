@@ -38,6 +38,16 @@ export default [
         name: 'chinese-kitchen-c',
         type: 'png',
         path: 'models/chinese-kitchen/color.png'
+    },
+    {
+        name: 'city-p',
+        type: 'png_16bit',
+        path: 'models/city/p_16bit.png'
+    },
+    {
+        name: 'city-c',
+        type: 'png',
+        path: 'models/city/color.png'
     }
     
 ]

@@ -14,7 +14,8 @@ export default class Wrold {
             this.app.canvas.style.setProperty('display', 'block')
 
             // Choose testing objects
-            switch (2) {
+            let showObject = 4;
+            switch (showObject) {
                 case 0:
                     this.particles = new Particles(this.resources.items['line-p'], this.resources.items['line-c'])
                     this.particles.object.scale.multiplyScalar(3)
@@ -32,6 +33,11 @@ export default class Wrold {
 
                 case 3:
                     this.particles = new Particles(this.resources.items['chinese-kitchen-p'], this.resources.items['chinese-kitchen-c'])
+                    this.particles.object.scale.multiplyScalar(10)
+                    break;
+
+                case 4:
+                    this.particles = new Particles(this.resources.items['city-p'], this.resources.items['city-c'])
                     this.particles.object.scale.multiplyScalar(10)
                     break;
             

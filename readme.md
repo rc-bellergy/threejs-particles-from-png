@@ -1,4 +1,4 @@
-# Import point cloud (particles positions and colours) from png files
+# Using ThreeJS import point cloud (particles positions and colours) from png files
 
 ## Why I create it?
 I have a project that needs to display point cloud and interact with users on a website. I found the threejs can import the particle data by CSV but the file is too large for website download.
@@ -26,6 +26,26 @@ npm run dev
 npm run build
 ```
 
+## Choose the sample
+Change the `showObject` id in the [/src/app/world/world.js](/src/app/world/world.js)  line 17
+
+- showObject = 0: 
+  - particlesL 10
+  - 16-bit PNG file size: 183 bytes
+- showObject = 1: 
+  - particles: 1,566
+  - 16-bit PNG file size: 1 KB
+- showObject = 2: 
+  - particles: 2,729
+  - 16-bit PNG file size: 17 KB
+- showObject = 3: 
+  - particles: 46,417
+  - 16-bit PNG file size: 279 KB
+- showObject = 4: 
+  - particles: 1,959,459 (It runs still smooth in my Mac)
+  - 16-bit PNG file size: 8.8 MB (but too large for website download)
+
+
 ## Preview
 ![](./preview.jpg)
 
@@ -34,3 +54,5 @@ https://ccs.city/en/chinese-cultural-club/chinese-culinary
 https://ccs.city/en/chinese-cultural-club/chinese-festival
 https://ccs.city/en/chinese-cultural-club/chinese-ethics
 
+## Feedback
+If you have any comments / questions, please feel free to leave it to [issue](https://github.com/rc-bellergy/threejs-particles-from-png/issues).
