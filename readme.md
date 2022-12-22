@@ -49,6 +49,7 @@ Change the `showObject` id in the [/src/app/world/world.js](/src/app/world/world
 ## Preview
 ![A simple point cloid on threejs](./previews/simple.jpg)
 ![The Hong Kong landscape](./previews/city.jpg)
+Point cloud of Kowloon.
 
 ## Project Showcases
 - https://ccs.city/en/chinese-cultural-club/chinese-culinary
